@@ -38,7 +38,7 @@ public class AddEvent extends JPanel {
 
 		JScrollPane sp = new JScrollPane(list);
 		sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        add(sp, BorderLayout.CENTER);
+        	add(sp, BorderLayout.CENTER);
 	
 		// for adding new task , bottom -> task, textbox, addnew button
 		JPanel bottom = new JPanel(new GridLayout(1, 2, 10, 10));
