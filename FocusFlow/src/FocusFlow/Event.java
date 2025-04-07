@@ -38,15 +38,15 @@ public class Event {
 		doneButton.setPreferredSize(new Dimension(15, 15));;
 		
 		doneButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            	doneButton.setBackground(Color.white);
-            	doneButton.setText("✔");
-            	doneButton.setForeground(Color.decode("#15736B"));
-
-            	doneButton.setEnabled(false);
-            }
-        });
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	            	doneButton.setBackground(Color.white);
+	            	doneButton.setText("✔");
+	            	doneButton.setForeground(Color.decode("#15736B"));
+	
+	            	doneButton.setEnabled(false);
+	            }
+	        });
 		
 		displayPanel.add(doneButton, BorderLayout.WEST);
 		displayPanel.add(label);
