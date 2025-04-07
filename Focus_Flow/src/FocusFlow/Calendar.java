@@ -39,7 +39,7 @@ public class Calendar extends JPanel {
 		top.add(date, BorderLayout.CENTER);
 
 		// right icon
-		JLabel right = new JLabel(new ImageIcon("image/right.png"));
+		JLabel right = new JLabel(new ImageIcon("Focus_Flow/image/right.png"));
 		right.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		right.addMouseListener(new MouseListener() {
 			@Override
@@ -66,7 +66,7 @@ public class Calendar extends JPanel {
 		top.add(right, BorderLayout.EAST);
 		
 		// left icon
-		JLabel left = new JLabel(new ImageIcon("image/left.png"));
+		JLabel left = new JLabel(new ImageIcon("Focus_Flow/image/left.png"));
 		left.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		left.addMouseListener(new MouseListener() {
 			@Override
