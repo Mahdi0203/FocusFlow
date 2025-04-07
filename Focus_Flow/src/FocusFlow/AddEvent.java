@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -38,7 +39,7 @@ public class AddEvent extends JPanel {
 
 		JScrollPane sp = new JScrollPane(list);
 		sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        add(sp, BorderLayout.CENTER);
+        	add(sp, BorderLayout.CENTER);
 	
 		// for adding new task , bottom -> task, textbox, addnew button
 		JPanel bottom = new JPanel(new GridLayout(1, 2, 10, 10));
@@ -62,7 +63,6 @@ public class AddEvent extends JPanel {
 //		bottom.add(taskLabel);
 		bottom.add(taskTextField);
 		bottom.add(taskButton);
-		
 		add(bottom, BorderLayout.SOUTH);
 		
 //		EventNew[] array = new EventNew[6];
@@ -74,41 +74,36 @@ public class AddEvent extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String text = taskTextField.getText().trim();
 				if ( !text.isEmpty() ) {
-					array.add(new Event(cur, text));
-					list.add(array.get(cur).displayPanel);
-					
-					final int index = cur;
-					
-					array.get(cur).displayPanel.addMouseListener(new MouseAdapter() {
-						  
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-  
-                            if (selectedPanel != null) {
-  
-                                selectedPanel.setBackground(new Color(200, 200, 200)); // Reset previous selection
-  
-                            }
-  
-                            array.get(cur).displayPanel.setBackground(new Color(150, 200, 250)); // Highlight selected panel
-  
-                            selectedPanel = array.get(cur).displayPanel;
-  
-                            selectedIndex = index;
-  
-                        }
-  
-                    });
-					
-					list.setPreferredSize(new Dimension(350, Math.max(200, cur * 40)));
-					list.revalidate();
-					list.repaint();
-					
-					taskTextField.setText("");
-					cur++;
+					if( text.length() > 20 ) {
+						JOptionPane.showMessageDialog(list,"Task should contain no more than 20 characters.");
+					}
+					else {
+						array.add(new Event(cur, text));
+						list.add(array.get(cur).displayPanel);
+						
+						final int index = cur;
+						array.get(cur).displayPanel.addMouseListener(new MouseAdapter() {  
+				                        @Override
+				                        public void mouseClicked(MouseEvent e) {
+				                            if (selectedPanel != null) {
+				                                selectedPanel.setBackground(new Color(200, 200, 200)); // Reset previous selection
+				                            }
+				  
+				                            array.get(cur).displayPanel.setBackground(new Color(150, 200, 250)); // Highlight selected panel
+				                            selectedPanel = array.get(cur).displayPanel;
+				                            selectedIndex = index;
+				                        }
+				                    });
+						
+						list.setPreferredSize(new Dimension(350, Math.max(200, cur * 40)));
+						list.revalidate();
+						list.repaint();
+						
+						taskTextField.setText("");
+						cur++;
+					}
 				}
 			}
-			
 		});
 	}
 }
