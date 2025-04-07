@@ -80,16 +80,16 @@ public class AddEvent extends JPanel {
 					final int index = cur;
 					array.get(cur).displayPanel.addMouseListener(new MouseAdapter() {
 						  
-					@Override
-					public void mouseClicked(MouseEvent e) {
-					    if (selectedPanel != null) {
-						selectedPanel.setBackground(new Color(200, 200, 200)); // Reset previous selection
-					    }
-					    array.get(cur).displayPanel.setBackground(new Color(150, 200, 250)); // Highlight selected panel
-					    selectedPanel = array.get(cur).displayPanel;
-					    selectedIndex = index;
-					}
-				    });
+						@Override
+						public void mouseClicked(MouseEvent e) {
+						    if (selectedPanel != null) {
+							selectedPanel.setBackground(new Color(200, 200, 200)); // Reset previous selection
+						    }
+						    array.get(cur).displayPanel.setBackground(new Color(150, 200, 250)); // Highlight selected panel
+						    selectedPanel = array.get(cur).displayPanel;
+						    selectedIndex = index;
+						}
+					    });
 					list.setPreferredSize(new Dimension(350, Math.max(200, cur * 40)));
 					list.revalidate();
 					list.repaint();
